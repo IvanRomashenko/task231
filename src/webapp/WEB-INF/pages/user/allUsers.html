@@ -9,10 +9,14 @@
 <body>
 <h1>List users</h1>
 <div th:each="user:${users}">
-    <a th:text="${user.getId()}">id</a>
-    <a th:text="${user.getUsername()}">name</a>
-    <a th:text="${user.getAge()}">age</a>
+<!--    <a th:text="${user.getId()}">id</a>-->
+<!--    <a th:text="${user.getUsername()}">name</a>-->
+<!--    <a th:text="${user.getAge()}">age</a>-->
+
+    <a th:href="@{/users/show(id=${user.getId()})}"
+       th:text="${user.getId()} + ', ' + ${user.getUsername()} + ', ' + ${user.getAge()}">id</a><br/><br/>
 
 </div>
+<a th:href="@{/users/new}">Create new user</a>
 </body>
 </html>
